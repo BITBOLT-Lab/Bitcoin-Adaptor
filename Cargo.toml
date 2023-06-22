@@ -1,0 +1,41 @@
+[package]
+name = "BitcoinAdaptor"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bitcoin = { version = "0.28.1", features = ["default", "use-serde", "rand"] }
+clap = { version = "3.1.6", features = ["derive"] }
+futures = "0.3.17"
+hashlink = "0.8.0"
+hex = "0.4.2"
+http = "0.2"
+adapter-metrics-server = { path = "adapter_metrics_server" }
+async-utils = { path = "sasync_utils" }
+btc-service = { path = "service" }
+btc-validation = { path = "btc-validation" }
+config = { path = "../../config" }
+logger = { path = "../../monitoring/logger" }
+metrics = { path = "metrics" }
+parking_lot = "0.12.1"
+prometheus = { version = "0.12.0", features = [ "process" ] }
+prost = "0.11.0"
+rand = "0.8.3"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+slog = "2.7.0"
+slog-async = "2.7.0"
+thiserror = "1.0.26"
+tokio = { version = "1.15.0", features = ["full", "macros"] }
+tokio-socks = "0.5.1"
+tonic = "0.8.2"
+tower = { version = "0.4.11", features = ["util"], optional = true }
+
+[dev-dependencies]
+tempfile = "3.3.0"
+
+[[bin]]
+name = "adapter-stress-test"
+required-features = ["tower"]
