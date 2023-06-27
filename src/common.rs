@@ -123,10 +123,10 @@ pub mod test_common {
     impl TestState {
         pub fn setup() -> Self {
             let encoded_block_1 =
-                Vec::from_hex(BLOCK_1_ENCODED).expect("failed to covert hex to vec");
+                Vec::from_hex(BLOCK_1_ENCODED).expect("failed to convert hex to vec");
             let block_1: Block = deserialize(&encoded_block_1).expect("failed to decoded block 1");
             let encoded_block_2 =
-                Vec::from_hex(BLOCK_2_ENCODED).expect("failed to covert hex to vec");
+                Vec::from_hex(BLOCK_2_ENCODED).expect("failed to convert hex to vec");
             let block_2: Block = deserialize(&encoded_block_2).expect("failed to decoded block 2");
 
             TestState { block_1, block_2 }
@@ -134,7 +134,7 @@ pub mod test_common {
     }
 
     fn decode_block(hex_str: &str) -> Block {
-        let encoded_block_1 = Vec::from_hex(hex_str).expect("failed to covert hex to vec");
+        let encoded_block_1 = Vec::from_hex(hex_str).expect("failed to convert hex to vec");
         deserialize(&encoded_block_1).expect("failed to decoded block 1")
     }
 
